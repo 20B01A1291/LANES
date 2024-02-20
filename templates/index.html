@@ -1,0 +1,117 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lane Prediction</title>
+    <style>
+        body {
+            background-image: url(https://images.unsplash.com/photo-1486673748761-a8d18475c757?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: rgba(28, 25, 25, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input[type="file"] {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.01; /* Make it transparent */
+        }
+
+        label {
+            background-color: #3498db;
+            color: #1a1818;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            border: 2px solid rgb(197, 156, 122);
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: background-color 0.3s;
+        }
+
+        label:hover {
+            background-color: #2980b9;
+        }
+
+        button[type="submit"] {
+            background-color: #2ecc71;
+            color: #1c1919;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            border: 2px solid rgb(197, 156, 122);
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #27ae60;
+        }
+
+        #file-info {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="{{url_for('upload_file')}}" method="POST" enctype="multipart/form-data">
+        <h1>Lane Prediction</h1>
+        <label for="file">Choose a video file</label>
+        <input type="file" id="file" name="file"  required onchange="displayFileName(this)">
+      
+        <button type="submit">Upload</button>
+        <div id="file-info"></div>
+    </form>
+
+    <script>
+        function displayFileName(input) {
+            var fileInfo = document.getElementById('file-info');
+            var fileName = input.files[0] ? input.files[0].name : null;
+
+            if (fileName) {
+                fileInfo.innerHTML = 'Selected file: ' + fileName;
+            } else {
+                fileInfo.innerHTML = 'No video uploaded';
+            }
+        }
+    </script>
+</body>
+
+</html>

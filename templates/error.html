@@ -1,0 +1,60 @@
+<!-- error.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <style>
+       
+        body {
+            background-image: url(https://images.unsplash.com/photo-1486673748761-a8d18475c757?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); /* Replace 'your-background-image.jpg' with the actual file path or URL */
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            color: #fff; /* Text color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+    
+
+        .error-container {
+            text-align: center;
+            background-color: #1a1818;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(237, 235, 235, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #ff0000;
+        }
+
+        p {
+            margin-bottom: 20px;
+            
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>Error</h1>
+        <p>{{ error_message }}</p>
+        
+        <a href="{{ url_for('index') }}">Go back to Upload</a>
+    </div>
+</body>
+</html>
